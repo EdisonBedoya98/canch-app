@@ -3,15 +3,16 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Cancha } from 'src/app/models/cancha.interface';
 import { FirebaseService } from '../../services/data/firestore.service';
 
+
 @Component({
-  selector: 'app-create-cancha',
-  templateUrl: './create-cancha.page.html',
-  styleUrls: ['./create-cancha.page.scss'],
+  selector: 'app-canchas',
+  templateUrl: './canchas.page.html',
+  styleUrls: ['./canchas.page.scss'],
 })
-export class CreateCanchaPage implements OnInit {
+export class CanchasPage implements OnInit {
+
   public canchaList = [];
   public canchaData: Cancha;
-  public CanchaForm: FormGroup;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -21,15 +22,7 @@ export class CreateCanchaPage implements OnInit {
   }
 
   ngOnInit() {
-    this.CanchaForm = this.fb.group({
-      address: ['', Validators.required],
-      sport: ['', Validators.required],
-      material: ['', Validators.required],
-      capacity: ['', Validators.required],
-      name: ['', Validators.required],
-      localization: ['', Validators.required],
-      imageurl: ['', Validators.required]
-    })   
+    
     this.firebaseService.read_canchas().subscribe(data => {
 
       this.canchaList = data.map(e => {
@@ -48,16 +41,28 @@ export class CreateCanchaPage implements OnInit {
 
     });    
   }
+  RemoveRecord(rowID) {
+    this.firebaseService.delete_cancha(rowID);
+  }
 
-  createRecord() {
-    console.log(this.CanchaForm.value);
-    this.firebaseService.create_cancha(this.CanchaForm.value).then(resp => {
-      this.CanchaForm.reset();
-    })
-    .catch(error => {
-      console.log(error);
-    });
-    alert("Cancha created: Succesful")
+  EditRecord(record) {
+    record.EditAddress = record.Address;
+    record.EditSport = record.Sport;
+    record.EditMaterial = record.Material;
+    record.EditCapacity = record.Capacity;
+    record.EditLocalization = record.Localization;
+    record.EditName = record.Name;
+  }
+
+  UpdateRecord(recordRow) {
+    let record = {};
+    record['Address'] = recordRow.EditAddress;
+    record['Sport'] = recordRow.EditSport;
+    record['Material'] = recordRow.EditMaterial;
+    record['Capacity'] = recordRow.EditCapacity;
+    record['EditLocalization'] = recordRow.EditEditLocalization;
+    record['Name'] = recordRow.EditName;
+    this.firebaseService.update_cancha(recordRow.id, record);
   }
 
 }

@@ -5,4 +5,5 @@ export interface Cancha {
     Material: string;
     Capacity: string;
     Localization: string;
+    Imageurl: string;
 }
