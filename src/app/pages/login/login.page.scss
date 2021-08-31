@@ -1,0 +1,44 @@
+.title {
+    margin-left: 25vw;
+    font-size: 6.3vw;
+}
+
+.subTitle {
+    margin-left: 31vw;
+    font-size: 5vw;
+}
+
+.formLogin {
+    margin-top: 20vw;
+}
+
+.itemCredential {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5vw;
+}
+
+.btnLogin {
+    margin-top: 5vw;
+    position: absolute;
+    left: 18vw;
+    font-size: 3.2vw;
+    width: 60vw;
+}
+
+.forgotPassword {
+    margin-top: 10vw;
+    margin-left: 27vw;
+    font-size: 3.8vw;
+}
+
+.loginContent {
+    background-color: #f5f3f3;
+    --background: url(../../../assets/imgBackgroundLogin.png) 0 0/100% 100% no-repeat;
+}
+
+.isNewUser {
+    margin-top: 35vw;
+    margin-left: 27vw;
+    font-size: 4.3vw;
+}
