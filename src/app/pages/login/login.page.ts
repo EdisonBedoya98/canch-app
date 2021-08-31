@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
         console.log(res)
         if(this.authService.isEmailVerified) {
           //Redireccionar a la pagina que va luego de haberse logueado
-          this.router.navigate(['dashboard']);          
+          this.router.navigate(['canchas']);          
         } else {
           window.alert('Email is not verified')
           return false;
