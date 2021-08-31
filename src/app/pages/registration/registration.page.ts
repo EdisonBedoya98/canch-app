@@ -19,6 +19,7 @@ export class RegistrationPage implements OnInit {
       this.authService.RegisterUser(email.value, password.value)      
       .then((res) => {
         // Do something here
+        console.log('Hi daniel torres g');
         this.authService.SendVerificationMail()
         this.router.navigate(['verify-email']);
       }).catch((error) => {
