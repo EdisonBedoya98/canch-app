@@ -5,38 +5,19 @@
         <h2 class="subTitle">¿Listo pa' jugar?</h2>
     </div>
     <form class="formLogin">
-        <input class="itemCredential" type="text" name="" placeholder="Usuario">
-        <input class="itemCredential" type="password" name="" placeholder="Contraseña">
+        <input class="itemCredential" type="text" name="email" #email placeholder="Usuario">
+        <input class="itemCredential" type="password" name="password" #password placeholder="Contraseña">
 
 
-        <input class="btnLogin" type="submit" name="loginBtn" value="login">
-        <ion-label class="forgotPassword"><a href="https://google.com">¿Olvidaste tu contraseña? </a> </ion-label>
+        <input class="btnLogin" type="submit" (click)="logIn(email, password)" name="loginBtn" value="Ingresar">
+
+        <input class="btnLogin" type="submit" (click)="logInWithGoogle()" name="loginBtn" value="Iniciar sesión con google">
+
+        <ion-label class="hyperlink"><a href="https://google.com">¿Olvidaste tu contraseña? </a> </ion-label>
         <br>
-        <ion-label class="forgotPassword"> <a href="#">Registrarse</a> </ion-label>
+        <ion-label class="hyperlink"> <a href="/registration">Registrarse</a> </ion-label>
 
 
     </form>
-    <!-- <form class="formLogin">
-        <ion-item lines="full" class="itemCredential">
-            <ion-label position="floating">Email</ion-label>
-            <ion-input type="text" #email required></ion-input>
-        </ion-item>
-
-        <ion-item lines="full" class="itemCredential">
-            <ion-label position="floating">Contraseña</ion-label>
-            <ion-input type="password" #password required></ion-input>
-        </ion-item>
-        <ion-row>
-            <ion-label class="forgotPassword"><a href="https://google.com">¿Olvidaste tu contraseña?</a> </ion-label>
-        </ion-row>
-        <ion-row>
-            <ion-button color="secondary" type="submit" class="btnLogin" (click)="logIn(email, password)" expand="block">¡A jugar!</ion-button>
-        </ion-row>
-        <ion-row>
-            <ion-label class="isNewUser">¿Eres un usuario nuevo?</ion-label>
-        </ion-row>
-    </form> -->
-
-
 
 </ion-content>

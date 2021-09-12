@@ -24,7 +24,7 @@
 }
 
 .subTitle {
-    font-size: 5vw;
+    font-size: 5;
 }
 
 .formLogin {
@@ -33,15 +33,9 @@
     position: relative;
     top: 150px;
     text-align: center;
-    // margin-left: auto;
-    // margin-right: auto;
-    // background: #191919;
 }
 
 .itemCredential {
-    // margin-left: auto;
-    // margin-right: auto;
-    // margin-bottom: 5vw;
     background: none;
     display: block;
     margin: 20px auto;
@@ -63,6 +57,7 @@
 .btnLogin {
     border: 0;
     background: none;
+    background: #cb944c;
     display: block;
     margin: 20px auto;
     text-align: center;
@@ -79,16 +74,10 @@
     background: #D2B48C;
 }
 
-.forgotPassword {
+.hyperlink {
     display: inline-block;
-    // margin-top: 0vw;
+    margin-top: 20px;
     margin-bottom: 20px;
-    font-size: 3.8vw;
-}
-
-.isNewUser {
-    margin-top: 35vw;
-    font-size: 4.3vw;
 }
 
 a {
