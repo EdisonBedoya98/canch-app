@@ -11,8 +11,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { ViewDetailsComponent } from './components/view-details/view-details.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,ViewDetailsComponent],
   entryComponents: [],
   imports: [
     BrowserModule,

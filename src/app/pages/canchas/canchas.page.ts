@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
+import { ViewDetailsComponent } from 'src/app/components/view-details/view-details.component';
 import { Cancha } from 'src/app/models/cancha.interface';
 import { FirebaseService } from '../../services/data/firestore.service';
 
@@ -11,12 +13,13 @@ import { FirebaseService } from '../../services/data/firestore.service';
 })
 export class CanchasPage implements OnInit {
 
-  public canchaList = [];
+  public canchaList= [];
   public canchaData: Cancha;
 
   constructor(
     private firebaseService: FirebaseService,
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    public modalController: ModalController
   ) {
     this.canchaData = {} as Cancha;
   }
@@ -44,7 +47,18 @@ export class CanchasPage implements OnInit {
   RemoveRecord(rowID) {
     this.firebaseService.delete_cancha(rowID);
   }
-
+  async presentModal(cancha:Cancha) {
+    const modal = await this.modalController.create({
+      component: ViewDetailsComponent,
+      cssClass: 'my-custom-class',
+      swipeToClose: true,
+      keyboardClose: true,
+      componentProps: {
+        'cancha':cancha
+      }
+    });
+    return await modal.present();
+  }
   EditRecord(record) {
     console.log('hi')
     record.EditAddress = record.Address;
