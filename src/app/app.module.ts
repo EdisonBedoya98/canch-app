@@ -12,8 +12,10 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { ViewDetailsComponent } from './components/view-details/view-details.component';
+import { ReserveComponent } from './components/reserve/reserve.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [AppComponent,ViewDetailsComponent],
+  declarations: [AppComponent,ViewDetailsComponent,ReserveComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { ViewDetailsComponent } from './components/view-details/view-details.com
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

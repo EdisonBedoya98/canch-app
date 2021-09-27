@@ -59,7 +59,7 @@ ion-header {
     background: none;
     background: #cb944c;
     display: block;
-    margin: 10px auto;
+    margin: 10px 10px;
     text-align: center;
     border: 2px solid #D2B48C;
     padding: 14px 40px;
@@ -68,6 +68,11 @@ ion-header {
     border-radius: 24px;
     transition: 0.25s;
     cursor: pointer;
+    display: inline-block;
+}
+
+.cardFooter {
+    text-align: center;
 }
 
 .btnSeeDetails:hover {
