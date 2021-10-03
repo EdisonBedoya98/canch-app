@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'canchas',
     loadChildren: () => import('./pages/canchas/canchas.module').then( m => m.CanchasPageModule)
+  },  {
+    path: 'canchas-ubication',
+    loadChildren: () => import('./pages/canchas-ubication/canchas-ubication.module').then( m => m.CanchasUbicationPageModule)
   },
+
 
 ];
 
