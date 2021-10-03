@@ -2,7 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { User } from '../interfaces/user';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
-// import {auth} from 'firebase'; // Good
+import * as firebase from 'firebase/app'; 
 import {
   AngularFirestore,
   AngularFirestoreDocument,
@@ -79,9 +79,16 @@ export class AuthenticationService {
 
   // Sign in with Gmail
   // GoogleAuth() {
-  //   return this.AuthLogin(new this.auth.GoogleAuthProvider());
+  //   return this.AuthLogin(new this.ngFireAuth.auth.GoogleAuthProvider());
   // }
-
+  async loginGoogle() {
+    const res = await this.ngFireAuth.signInWithPopup(new firebase.default.auth.GoogleAuthProvider());
+    const user = res.user;
+    console.log(user);
+    // this.picture = user.photoURL;
+    // this.name = user.displayName;
+    // this.email = user.email;
+ }
   // Auth providers
   AuthLogin(provider) {
     return this.ngFireAuth

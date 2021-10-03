@@ -1,9 +1,9 @@
 export interface Cancha {
-    Name: string;
-    Address: string;
-    Sport: string;
-    Material: string;
-    Capacity: string;
-    Localization: string;
-    Imageurl: string;
+    name: string;
+    address: string;
+    sport: string;
+    material: string;
+    capacity: string;
+    localization: string;
+    imageUrl: string;
 }

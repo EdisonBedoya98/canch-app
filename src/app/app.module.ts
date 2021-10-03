@@ -11,8 +11,14 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { ViewDetailsComponent } from './components/view-details/view-details.component';
+import { ReserveComponent } from './components/reserve/reserve.component';
+import { FormsModule } from '@angular/forms';
+
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,ViewDetailsComponent,ReserveComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -21,11 +27,14 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    Geolocation,
+    NativeGeocoder
   ],
   bootstrap: [AppComponent],
 })

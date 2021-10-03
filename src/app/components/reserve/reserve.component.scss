@@ -1,5 +1,6 @@
-* {
-    box-sizing: border-box;
+.body {
+    background-color: #B76E22;
+    --background: url(../../../assets/imgBackgroundLogin.png) 0 0/100% 1000px no-repeat;
 }
 
 ::placeholder {
@@ -7,27 +8,7 @@
     opacity: 1;
 }
 
-.loginContent {
-    background-color: #B76E22;
-    --background: url(../../../assets/imgBackgroundLogin.png) 0 0/100% 1000px no-repeat;
-}
-
-.titleContainer {
-    position: relative;
-    top: 50px;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-.title {
-    font-weight: 900;
-}
-
-.subTitle {
-    font-size: 5;
-}
-
-.formLogin {
+.form {
     width: 100vw;
     max-width: 600px;
     position: relative;
@@ -54,7 +35,7 @@
     border-color: #D2691E;
 }
 
-.btnLogin {
+.btnRegister {
     border: 0;
     background: none;
     background: #cb944c;
@@ -70,16 +51,15 @@
     cursor: pointer;
 }
 
-.btnLogin:hover {
+.btnRegister:hover {
     background: #D2B48C;
 }
 
-.hyperlink {
-    display: inline-block;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-a {
-    color: white;
+.date,
+.time {
+    border-radius: 24px;
+    color: #fff;
+    width: 15rem;
+    // background: red;
+    margin: 1rem auto;
 }
