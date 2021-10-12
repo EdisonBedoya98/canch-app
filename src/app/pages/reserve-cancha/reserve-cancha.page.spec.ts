@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ReserveComponent } from './reserve.component';
+import { ReserveCanchaPage } from './reserve-cancha.page';
 
-describe('ReserveComponent', () => {
-  let component: ReserveComponent;
-  let fixture: ComponentFixture<ReserveComponent>;
+describe('ReserveCanchaPage', () => {
+  let component: ReserveCanchaPage;
+  let fixture: ComponentFixture<ReserveCanchaPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReserveComponent ],
+      declarations: [ ReserveCanchaPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ReserveComponent);
+    fixture = TestBed.createComponent(ReserveCanchaPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

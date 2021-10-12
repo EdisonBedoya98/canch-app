@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'canchas-ubication',
     loadChildren: () => import('./pages/canchas-ubication/canchas-ubication.module').then( m => m.CanchasUbicationPageModule)
   },
+  {
+    path: 'reserve-cancha',
+    loadChildren: () => import('./pages/reserve-cancha/reserve-cancha.module').then( m => m.ReserveCanchaPageModule)
+  },
 
 
 ];
