@@ -48,7 +48,7 @@
 
 
             <input class="btnSeeDetails" type="button" (click)="presentDetails(cancha)" value="Ver Detalles">
-            <input class="btnSeeDetails" type="button" (click)="presentReserve(cancha)" value="Reservar">
+            <input class="btnSeeDetails" type="button" [routerLink]="['/reserve-cancha',cancha.name]" value="Reservar">
 
             <!-- <ion-button color="tertiary" (click)="EditRecord(cancha)">
                 <ion-icon slot="icon-only" name="seeDetails"></ion-icon>

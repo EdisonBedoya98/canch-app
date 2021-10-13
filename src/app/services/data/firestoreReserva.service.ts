@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Cancha } from 'src/app/models/cancha.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
 
-  collectionName = 'Canchas';
+  collectionName = 'Reserva';
 
   constructor(
     private firestore: AngularFirestore

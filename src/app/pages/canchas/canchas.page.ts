@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
-import { ReserveComponent } from 'src/app/components/reserve/reserve.component';
 import { ViewDetailsComponent } from 'src/app/components/view-details/view-details.component';
 import { Cancha } from 'src/app/models/cancha.interface';
 import { FirebaseService } from '../../services/data/firestore.service';
@@ -48,7 +47,7 @@ export class CanchasPage implements OnInit {
   RemoveRecord(rowID) {
     this.firebaseService.delete_cancha(rowID);
   }
-  async presentReserve(cancha:Cancha){
+  /* async presentReserve(cancha:Cancha){
     const modal = await this.modalController.create({
       component: ReserveComponent,
       swipeToClose: true,
@@ -58,7 +57,7 @@ export class CanchasPage implements OnInit {
       }
     });
     return await modal.present();
-  }
+  } */
   async presentDetails(cancha:Cancha) {
     const modal = await this.modalController.create({
       component: ViewDetailsComponent,
