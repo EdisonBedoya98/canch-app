@@ -16,7 +16,7 @@ export class ReserveCanchaPage implements OnInit {
   public reservaList = [];
   public reservaForm : FormGroup;
   public reservaData : Reserva;
-  public datoTraido: any;
+  public duplicado: any;
   public objectDate = new Date  
   public todayDate = this.objectDate.getFullYear()+"-"+(this.objectDate.getMonth()+1)+"-"+(this.objectDate.getDate()+1)
 
@@ -31,7 +31,7 @@ export class ReserveCanchaPage implements OnInit {
   ngOnInit() {
     console.log(this.objectDate)
     this.canchaName= this.activatedRoute.snapshot.paramMap.get("name")
-    this.datoTraido = this.firebaseService.filter_by_name(this.canchaName).subscribe(data =>{
+    this.firebaseService.filter_by_name(this.canchaName).subscribe(data =>{
       this.reservaList = data.map(e  => {
         return {
           date: e['date'],
@@ -53,15 +53,28 @@ export class ReserveCanchaPage implements OnInit {
 
   createRecord() {
     console.log(this.reservaForm.value);
+    this.duplicado = false;
     this.reservaForm.value["date"] = this.reservaForm.value["date"].substring(0,10)
-    this.reservaForm.value["hour"] = this.reservaForm.value["hour"].substring(11,16)
-    this.firebaseService.create_reservas(this.reservaForm.value).then(resp => {
-      this.reservaForm.reset();
+    this.reservaForm.value["hour"] = this.reservaForm.value["hour"].substring(11,13)
+    this.reservaList.map(e  => {
+      if (this.reservaForm.value["date"] == e["date"] &&  this.reservaForm.value["hour"] == e["hour"]) {
+        console.log(this.reservaForm.value["hour"])
+        console.log(e["hour"])
+        this.duplicado = true;
+      }
     })
-    .catch(error => {
-      console.log(error);
-    });
-    alert("Cancha created: Succesful")
+    console.log(this.duplicado)
+    if (!this.duplicado) {
+      this.firebaseService.create_reservas(this.reservaForm.value).then(resp => {
+        this.reservaForm.reset();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+      alert("Cancha created: Succesful")      
+    } else {      
+      alert("Ya existe una reservación con esa fecha y hora")
+    }
   }
 
 }
