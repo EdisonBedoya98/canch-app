@@ -15,10 +15,14 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating">Fecha</ion-label>
-      <ion-input formControlName="date"></ion-input>
+      <ion-datetime formControlName="date" display-timezone="America/New_York" max="2030" min={{todayDate}} display-format="DD-MM-YYYY"></ion-datetime>
     </ion-item>
     <ion-item>
-      <ion-button (click)="createRecord()" [disabled]="reservaForm.invalid" [routerLink]="['/canchas']">
+      <ion-label position="floating">Hora</ion-label>
+      <ion-datetime formControlName="hour" display-timezone="America/New_York" max="2030" min={{todayDate}} display-format="h A"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-button (click)="createRecord()"  [routerLink]="['/canchas']">
         <ion-icon size="small" slot="icon-only" name="add"></ion-icon>
         &nbsp;Reservar
       </ion-button>
@@ -28,7 +32,7 @@
   <ion-label> La cancha {{canchaName}} esta reservada para los dias:</ion-label>
   <ion-list *ngFor="let reserva of reservaList">
     <ion-item>
-      <ion-label>{{reserva.date}}</ion-label>
+      <ion-label>Día: {{reserva.date}}  Hora: {{reserva.hour}}</ion-label>
     </ion-item>
   </ion-list>
 

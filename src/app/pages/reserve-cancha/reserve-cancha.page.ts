@@ -16,7 +16,10 @@ export class ReserveCanchaPage implements OnInit {
   public reservaList = [];
   public reservaForm : FormGroup;
   public reservaData : Reserva;
-  
+  public datoTraido: any;
+  public objectDate = new Date  
+  public todayDate = this.objectDate.getFullYear()+"-"+(this.objectDate.getMonth()+1)+"-"+(this.objectDate.getDate()+1)
+
   constructor(
     private firebaseService: FirebaseService,
     public fb: FormBuilder,
@@ -26,33 +29,32 @@ export class ReserveCanchaPage implements OnInit {
   }
   
   ngOnInit() {
+    console.log(this.objectDate)
     this.canchaName= this.activatedRoute.snapshot.paramMap.get("name")
+    this.datoTraido = this.firebaseService.filter_by_name(this.canchaName).subscribe(data =>{
+      this.reservaList = data.map(e  => {
+        return {
+          date: e['date'],
+          hour: e['hour'],
+        }
+      })
+      console.log(this.reservaList);
+
+    });
     this.reservaForm = this.fb.group({
       nameCancha: [this.canchaName, Validators.required],
       nameUser: ['', Validators.required],
       idUser: ['', Validators.required],
-      date: ['', Validators.required]
+      date: ['', Validators.required],
+      hour: ['', Validators.required]
     })
-
-    this.firebaseService.read_reserva().subscribe(data => {
-
-      this.reservaList = data.map(e => {
-        return {
-          id: e.payload.doc.id,
-          nameUser: e.payload.doc.data()['nameUser'],
-          nameCancha: e.payload.doc.data()['nameCancha'],
-          idUser: e.payload.doc.data()['idUser'],
-          date: e.payload.doc.data()['date'],
-        };
-      })
-      console.log(this.reservaList);
-
-    }); 
     
   }
 
   createRecord() {
     console.log(this.reservaForm.value);
+    this.reservaForm.value["date"] = this.reservaForm.value["date"].substring(0,10)
+    this.reservaForm.value["hour"] = this.reservaForm.value["hour"].substring(11,16)
     this.firebaseService.create_reservas(this.reservaForm.value).then(resp => {
       this.reservaForm.reset();
     })

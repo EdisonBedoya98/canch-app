@@ -27,4 +27,12 @@ export class FirebaseService {
   delete_reserva(record_id) {
     this.firestore.doc(this.collectionName + '/' + record_id).delete();
   }
+  
+  filter_by_name(name: string) {
+    return this.firestore.collection(this.collectionName, ref => ref.where('nameCancha', '==', name)).valueChanges();
+  }
+
+  
+
+
 }
