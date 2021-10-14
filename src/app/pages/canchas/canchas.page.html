@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-title class="ionMainTitle">CANCHAS</ion-title>
+</ion-header>
+
+<ion-content class="ionContent">
+    <!-- <div class="cardsContainer">
+        <div class="cardContainer" *ngFor="let cancha of canchaList">
+            <div class="cardHeader">
+                <img class="canchaImg" src="{{cancha.Imageurl}}" alt="{{cancha.Localization}}">
+            </div>
+        </div>
+    </div> -->
+    <ion-card *ngFor="let cancha of canchaList" class="ionCard">
+
+
+        <ion-card-header class="ionCardHeader">
+            <img class="canchaImg" src="{{cancha.imageUrl}}" alt="ion">
+            <ion-card-title class="ionTitle">{{cancha.name}}</ion-card-title>
+
+        </ion-card-header>
+        <ion-card-content>
+
+            <div class="ionRow">
+                <p>Deporte: {{cancha.sport}}</p>
+            </div>
+            <div class="ionRow">
+                <p>Capacidad: {{cancha.capacity}}</p>
+
+            </div>
+            <!-- <ion-col center text-center>
+                    <button>
+                     <div>Ubicación: {{cancha.localization}}</div>
+                   </button>
+                </ion-col>
+                <ion-col center text-center>
+                    <button>
+                     <div>Dirrección: {{cancha.address}}</div>
+                  </button>
+                </ion-col>
+                <ion-col center text-center>
+                    <button>
+                      <div> Desporte: {{cancha.sport}}</div>
+                  </button>
+                </ion-col> -->
+
+        </ion-card-content>
+        <div class="cardFooter">
+
+
+            <input class="btnSeeDetails" type="button" (click)="presentDetails(cancha)" value="Ver Detalles">
+            <input class="btnSeeDetails" type="button" [routerLink]="['/reserve-cancha',cancha.name]" value="Reservar">
+
+            <!-- <ion-button color="tertiary" (click)="EditRecord(cancha)">
+                <ion-icon slot="icon-only" name="seeDetails"></ion-icon>
+
+            </ion-button> -->
+            <!-- <ion-button shape="round" color="danger" size="small" (click)="RemoveRecord(cancha.id)">
+                <ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+            </ion-button> -->
+        </div>
+
+    </ion-card>
+</ion-content>

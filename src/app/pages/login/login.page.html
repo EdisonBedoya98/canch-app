@@ -1,0 +1,23 @@
+<ion-content class="loginContent">
+
+    <div class="titleContainer">
+        <h1 class="title">¡QUÉ MÁS PARCE!</h1>
+        <h2 class="subTitle">¿Listo pa' jugar?</h2>
+    </div>
+    <form class="formLogin">
+        <input class="itemCredential" type="text" name="email" #email placeholder="Usuario">
+        <input class="itemCredential" type="password" name="password" #password placeholder="Contraseña">
+
+
+        <input class="btnLogin" type="submit" (click)="logIn(email, password)" name="loginBtn" value="Ingresar">
+
+        <input class="btnLogin" type="submit" (click)="logInWithGoogle()" name="loginBtn" value="Iniciar sesión con google">
+
+        <ion-label class="hyperlink"><a href="https://google.com">¿Olvidaste tu contraseña? </a> </ion-label>
+        <br>
+        <ion-label class="hyperlink"> <a href="/registration">Registrarse</a> </ion-label>
+
+
+    </form>
+
+</ion-content>

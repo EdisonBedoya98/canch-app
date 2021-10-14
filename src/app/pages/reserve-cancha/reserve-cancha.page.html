@@ -1,0 +1,41 @@
+<ion-header>  
+    <ion-title class="ionMainTitle">Reservar Cancha</ion-title>
+</ion-header>
+
+<ion-content class="ionContent">
+  <form [formGroup]="reservaForm" (ngSubmit)="createRecord()">
+    <ion-item>
+      <ion-label position="floating">Nombre del Usuario</ion-label>
+      <ion-input formControlName="nameUser"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Cedula</ion-label>
+      <ion-input formControlName="idUser"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Fecha</ion-label>
+      <ion-datetime formControlName="date" display-timezone="America/New_York" max="2030" min={{todayDate}} display-format="DD-MM-YYYY"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Hora</ion-label>
+      <ion-datetime formControlName="hour" display-timezone="America/New_York" max="2030" min={{todayDate}} display-format="h A"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-button (click)="createRecord()"  [routerLink]="['/canchas']">
+        <ion-icon size="small" slot="icon-only" name="add"></ion-icon>
+        &nbsp;Reservar
+      </ion-button>
+    </ion-item>
+
+  </form>
+  <ion-label> La cancha {{canchaName}} esta reservada para los dias:</ion-label>
+  <ion-list *ngFor="let reserva of reservaList">
+    <ion-item>
+      <ion-label>Día: {{reserva.date}}  Hora: {{reserva.hour}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+
+  
+</ion-content>

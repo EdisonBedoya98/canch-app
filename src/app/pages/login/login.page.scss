@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+
+::placeholder {
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.loginContent {
+    background-color: #B76E22;
+    --background: url(../../../assets/imgBackgroundLogin.png) 0 0/100% 1000px no-repeat;
+}
+
+.titleContainer {
+    position: relative;
+    top: 50px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.title {
+    font-weight: 900;
+}
+
+.subTitle {
+    font-size: 5;
+}
+
+.formLogin {
+    width: 100vw;
+    max-width: 600px;
+    position: relative;
+    top: 150px;
+    text-align: center;
+}
+
+.itemCredential {
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #D2B48C;
+    padding: 14px 10px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    width: 200px;
+}
+
+.itemCredential:focus {
+    width: 300px;
+    border-color: #D2691E;
+}
+
+.btnLogin {
+    border: 0;
+    background: none;
+    background: #cb944c;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #D2B48C;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.btnLogin:hover {
+    background: #D2B48C;
+}
+
+.hyperlink {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+a {
+    color: white;
+}
